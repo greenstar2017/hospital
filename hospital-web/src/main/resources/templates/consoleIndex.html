@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="AppCtrl">
+<head>
+  <meta charset="utf-8" />
+  <title>{{app.name}}</title>
+  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <link rel="stylesheet" href="css/contact.css" type="text/css" />
+</head>
+<body>
+  <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+
+ <!-- <div class="qqkefu">
+    <ul>
+        <li class="qq_cza" id="BizQQWPA"> <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=309373162&amp;site=qq&amp;menu=yes" target="_blank"> <b class="a"> </b> 309373162 </a> </li>
+        <li class="qq_cza" id="zx"> <a href="javascript:;"> <b class="b"> </b> 020-3195 9275 </a> </li>
+        <li class="qq_cza" id="sj"> <a href="javascript:;"> <b class="sj"> </b> +86 139-224-28004 </a> </li>
+        <li class="qq_czb"> <b class="c"> </b>
+            <div class="erweima">
+                <p> <img src="img/contact_weixin.jpg"> 关注微信 </p>
+            </div>
+        </li>
+    </ul>
+  </div> -->
+ 
+ 
+  <!-- jQuery -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+
+  <!-- Angular -->
+  <script src="vendor/angular/angular.js"></script>
+  
+  <script src="vendor/layer-v2.1/layer/layer.js"></script>
+  <script src="vendor/layer-v2.1/ng-layer.js"></script>
+  
+  <script src="vendor/angular/angular-animate/angular-animate.js"></script>
+  <script src="vendor/angular/angular-cookies/angular-cookies.js"></script>
+  <script src="vendor/angular/angular-resource/angular-resource.js"></script>
+  <script src="vendor/angular/angular-sanitize/angular-sanitize.js"></script>
+  <script src="vendor/angular/angular-touch/angular-touch.js"></script>
+<!-- Vendor -->
+  <script src="vendor/angular/angular-ui-router/angular-ui-router.js"></script> 
+  <script src="vendor/angular/ngstorage/ngStorage.js"></script>
+
+  <!-- bootstrap -->
+  <script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <!-- lazyload -->
+  <script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
+  <!-- translate -->
+  <script src="vendor/angular/angular-translate/angular-translate.js"></script>
+  <script src="vendor/angular/angular-translate/loader-static-files.js"></script>
+  <script src="vendor/angular/angular-translate/storage-cookie.js"></script>
+  <script src="vendor/angular/angular-translate/storage-local.js"></script>
+
+  <!-- App -->
+  <script src="js/app.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/config.lazyload.js"></script>
+  <script src="js/config.router.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/services/ui-load.js"></script>
+  <script src="js/filters/fromNow.js"></script>
+  <script src="js/directives/setnganimate.js"></script>
+  <script src="js/directives/ui-butterbar.js"></script>
+  <script src="js/directives/ui-focus.js"></script>
+  <script src="js/directives/ui-fullscreen.js"></script>
+  <script src="js/directives/ui-jq.js"></script>
+  <script src="js/directives/ui-module.js"></script>
+  <script src="js/directives/ui-nav.js"></script>
+  <script src="js/directives/ui-scroll.js"></script>
+  <script src="js/directives/ui-shift.js"></script>
+  <script src="js/directives/ui-toggleclass.js"></script>
+  <script src="js/directives/ui-validate.js"></script>
+  <script src="js/controllers/bootstrap.js"></script>
+  <script src="l10n/angular-locale_zh-cn.js"></script>
+  <script src="js/utils/common_request.js?v=1"></script>
+  <script src="js/utils/math_utils.js"></script>
+  <script src="js/utils/datetime_utils.js"></script>
+  <!-- Lazy loading -->
+  
+  <script src="vendor/jquery/charts/highcharts/highcharts.js"></script>  
+  <script src="/vendor/jquery/charts/highcharts/drilldown.js"></script>
+  <script src="/vendor/jquery/charts/highcharts/data.js"></script>  
+  
+  
+  
+  
+  <script type="text/javascript">
+	$(document).ready(function() {
+//      客服
+      $(".qq_cza").hover(function () {
+          if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE7.0") {
+              $(this).stop(true, false).animate({ "width": "170px", "left": "-85px" }, 300);
+          } else {
+              $(this).stop(true, false).animate({ "width": "170px" }, 300);
+          }
+      }, function () {
+          if (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.split(";")[1].replace(/[ ]/g, "") == "MSIE7.0") {
+              $(this).stop(true, false).animate({ "width": "35px", "left": "0" }, 300);
+          } else {
+              $(this).stop(true, false).animate({ "width": "35px" }, 300);
+          }
+      });
+      $(".qq_czb").hover(function () {
+          $(".erweima").show(50);
+      }, function () {
+          $(".erweima").hide(50);
+      });
+
+  });
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<link rel="stylesheet" type="text/css" href="pages/css/style.css" />
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">系统用户管理</h1>
+</div>
+<div class="wrapper-md" ng-controller="SystemAccountMngCtrl">
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+  <div class="panel panel-default">
+    <div class="row wrapper">
+      <div class="col-sm-7">
+      	<input type="text" class="input-sm form-control w-sm inline v-middle" ng-model="params.account" placeholder="用户账号">
+      	<input type="text" class="input-sm form-control w-sm inline v-middle" ng-model="params.name" placeholder="用户名称">
+      	<a type="button" class="btn btn-sm btn-success glyphicon glyphicon-search" ng-click="queryResult();">搜索</a>
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group">&nbsp;
+        </div>
+      </div>
+      <div class="col-sm-2">
+      	<div class="btn-group pull-right">
+		     <a type="button" class="btn btn-sm btn-success glyphicon glyphicon-plus" ui-sref="app.systemAccount_edit">添加</a>
+	     </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead style="background-color: #fff;">
+          <tr>
+            <th>账号</th>
+            <th>名称</th>
+            <th>类型</th>
+            <th>状态</th>
+            <th>手机号码</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in result.data">
+            <td>{{data.account}}</td>
+			<td>{{data.name}}</td>   
+			<td><span ng-repeat="item in app.settings.baseData.accountTypeEnum" ng-if="data.type == item.key">{{item.typeDes}}</span></td>
+			<td><span ng-repeat="item in app.settings.baseData.delFlagEnum" ng-if="data.status == item.key">{{item.typeDes}}</span></td>
+			<td>{{data.mobile}}</td>
+			<td><a type="button" class="btn-sm btn-warning" ng-click="goEdit(data)">编辑</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <tm-pagination conf="paginationConf"></tm-pagination>
+  
+</div>
+<script>
+window.onscroll  = function(){
+	var scrollTop = $(this).scrollTop();
+	var titleHeight = $(".bg-light.lter.b-b.wrapper-md").height();
+	$(".row.wrapper").each(function(i,data){
+		titleHeight += $(this).height();
+    });
+	titleHeight += 80;
+	if(scrollTop > titleHeight) {
+		$("thead").css('transform', 'translate(0, '
+				+ (scrollTop - titleHeight) + 'px)');
+	} else {
+		$("thead").css('transform', '');
+	}
+}
+</script>

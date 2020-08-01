@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.green</groupId>
+		<artifactId>modules-framework-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>hospital-service</artifactId>
+	<name>易采SERVICE层</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.green</groupId>
+			<artifactId>hospital-dao</artifactId>
+			<version>${modules.version}</version>
+		</dependency>
+	</dependencies>
+</project>

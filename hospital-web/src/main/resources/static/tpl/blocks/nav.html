@@ -1,0 +1,25 @@
+<!-- list -->
+<!--  style="position: fixed;top: 60px; width: 200px;" -->
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs" style="height:0px;">
+  </li>
+  <li ng-class="{active:$state.includes('app.system')}" ng-if="app.settings.loginUser.type==0">
+    <a href class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-th-large icon text-success-lt"></i>
+      <span class="font-bold">系统管理</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li ui-sref-active="active">
+        <a ui-sref="app.systemAccount">
+          <span>用户管理</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+</ul>
+<!-- / list -->

@@ -1,0 +1,25 @@
+.qqkefu { position: fixed; bottom:40%; _position: absolute;  _top: expression(eval(document.documentElement.scrollTop + 365));
+z-index: 20; right:0; width:35px; }
+.qqkefu ul li { list-style:none; width:35px; height:47px; margin-bottom:1px; float:right; background:#757575; line-height:47px; font-size:14px; cursor:pointer; opacity: 0.9; position:relative }
+.qqkefu ul li a { color:#fff; display: block; }
+.qqkefu ul li.qq_cza { overflow:hidden }
+.qqkefu ul li:hover { background:#CE0000; }
+.qqkefu ul li.top { color:#1c1c1c; font-weight:800; text-align:center; /*background:#CE0000 url(../images/top_icon.png) no-repeat center;*/
+    position:relative; width:35px; cursor:pointer;  -webkit-transition: .3s;
+ -o-transition: .3s;
+ transition: .3s;
+}
+.qqkefu ul li.top:hover { background-color: #CE0000; }
+.qqkefu ul li b { width:35px; height:47px; display:block; overflow:hidden; float:left; }
+#zx { width: 35px; }
+.qqkefu ul li b.a { background:url(../img/czx4.png) no-repeat center center; }
+.qqkefu ul li b.b { background:url(../img/czx3.png) no-repeat center center; }
+.qqkefu ul li b.sj { background:url(../img/sj.png) no-repeat center center; }
+.qqkefu ul li b.c { background:url(../img/czx5.png) no-repeat center center; }
+
+.erweima { height: 150px; position: absolute; top: -105px; left: -134px; background: #FFF; border: 1px solid #CCC; float: right; cursor: default !important; display:none; }
+.erweima p { line-height: 20px; color: #000; font-size: 12px; text-align: center; float: left; width: 130px; }
+.erweima p img { width: 110px; height: 110px; margin: 10px 10px 0px 10px; }
+
+#n{margin:10px auto; width:920px; border:1px solid #CCC;font-size:12px; line-height:30px;}
+#n a{ padding:0 4px; color:#333}

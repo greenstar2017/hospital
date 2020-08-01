@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" ng-controller="AppCtrl">
+<head>
+<meta charset="utf-8" />
+<title>管理系统</title>
+<meta name="description"
+	content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/animate.css" type="text/css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+<link rel="stylesheet" href="css/font.css" type="text/css" />
+<link rel="stylesheet" href="css/app.css" type="text/css" />
+<link rel="stylesheet" href="css/contact.css" type="text/css" />
+<link rel="stylesheet" href="pages/css/footer.css" type="text/css" />
+<style type="text/css">
+#index_footer {
+	background: none
+}
+
+.wrapper-md {
+	padding: 0px;
+}
+
+.panel {
+	margin-bottom: 0px;
+}
+
+.panel-heading {
+	padding: 5px 5px 0px 0px
+}
+
+.list-group-item {
+	padding: 3px 15px;
+}
+
+.m-t-none {
+	height: 60px
+}
+
+.col-lg-2 a:hover {
+	text-decoration: none
+}
+
+.col-lg-2 ul {
+	text-align: center;
+}
+
+.panel {
+	background-color: transparent
+}
+
+.bg-info {
+	background-color: #23b7e57a
+}
+
+.b-a {
+	border: none
+}
+
+.panel-heading {
+	border-radius: 10px 10px 0 0;
+	height:75px;
+	padding: 12px 15px;
+}
+
+.col-lg-2 {
+	width: 14.25%
+}
+</style>
+</head>
+<body style="overflow-y: hidden">
+	<div id="app" style="display: none;">
+		<div class="container w-xxl w-auto-xs"
+			style="position: absolute; left: 0px; right: 0px; top: 10%; bottom: 0px;"
+			ng-init="app.settings.container = false;">
+			<a class="navbar-brand block m-t" style="color: white">管理系统</a>
+			<div class="m-b-lg">
+				<form name="form" class="form-validation" id="loginform"
+					method="post">
+					<div class="text-danger wrapper text-center">{{errorMsg}}</div>
+					<div class="list-group list-group-sm">
+						<div class="list-group-item">
+							<input type="text" placeholder="账号"
+								class="form-control no-border" ng-model="user.account"
+								required="true" />
+						</div>
+						<div class="list-group-item">
+							<input type="password" placeholder="密码"
+								class="form-control no-border" ng-model="user.password"
+								required="true" />
+						</div>
+					</div>
+					<button type="submit" class="btn btn-lg btn-primary btn-block"
+						style="background-color: rgba(104, 170, 220, 0.62); border-color: rgba(104, 170, 220, 0.62);"
+						ng-click="login()">登录</button>
+					<p class="text-center">
+						<small style="color: white;">温馨提示：请使用<a
+							href="https://pc.qq.com/detail/1/detail_2661.html"
+							target="_blank" style="color: red; text-decoration: underline;">chrome谷歌浏览器</a>访问
+						</small>
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="index_footer"
+			style="position: absolute; left: 0px; right: 0px; bottom: 0; padding: 0px 0 0;">
+
+			<div class="wrapper wrapper-996 bottom">
+				© 备案信息 &nbsp;&nbsp;<span class="divider">|</span>&nbsp;&nbsp;备案号
+				&copy; 2020
+				<!-- <a
+					target="_blank"
+					href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602001878">粤ICP备18134261号-1 &copy; 2018</a> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="qqkefu">
+		<ul>
+			<li class="qq_cza" id="BizQQWPA"><a
+				href="http://wpa.qq.com/msgrd?v=3&amp;uin=309373162&amp;site=qq&amp;menu=yes"
+				target="_blank"> <b class="a"> </b> 309373162
+			</a></li>
+			<li class="qq_cza" id="zx"><a href="javascript:;"> <b
+					class="b"> </b> 020-3195 9275
+			</a></li>
+			<li class="qq_cza" id="sj"><a href="javascript:;"> <b
+					class="sj"> </b> +86 139-224-28004
+			</a></li>
+			<li class="qq_czb"><b class="c"> </b>
+				<div class="erweima">
+					<p>
+						<img src="img/contact_weixin.jpg"> 关注微信
+					</p>
+				</div></li>
+		</ul>
+	</div> -->
+
+
+	<!-- jQuery -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+
+	<!-- Angular -->
+	<script src="vendor/angular/angular.js"></script>
+
+	<script src="vendor/angular/angular-animate/angular-animate.js"></script>
+	<script src="vendor/angular/angular-cookies/angular-cookies.js"></script>
+	<script src="vendor/angular/angular-resource/angular-resource.js"></script>
+	<script src="vendor/angular/angular-sanitize/angular-sanitize.js"></script>
+	<script src="vendor/angular/angular-touch/angular-touch.js"></script>
+	<!-- Vendor -->
+	<script src="vendor/angular/angular-ui-router/angular-ui-router.js"></script>
+	<script src="vendor/angular/ngstorage/ngStorage.js"></script>
+
+	<!-- bootstrap -->
+	<script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<!-- lazyload -->
+	<script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
+	<!-- translate -->
+	<script src="vendor/angular/angular-translate/angular-translate.js"></script>
+	<script src="vendor/angular/angular-translate/loader-static-files.js"></script>
+	<script src="vendor/angular/angular-translate/storage-cookie.js"></script>
+	<script src="vendor/angular/angular-translate/storage-local.js"></script>
+
+	<!-- App -->
+	<script src="js/app.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/config.lazyload.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/services/ui-load.js"></script>
+	<script src="js/filters/fromNow.js"></script>
+	<script src="js/directives/setnganimate.js"></script>
+	<script src="js/directives/ui-butterbar.js"></script>
+	<script src="js/directives/ui-focus.js"></script>
+	<script src="js/directives/ui-fullscreen.js"></script>
+	<script src="js/directives/ui-jq.js"></script>
+	<script src="js/directives/ui-module.js"></script>
+	<script src="js/directives/ui-nav.js"></script>
+	<script src="js/directives/ui-scroll.js"></script>
+	<script src="js/directives/ui-shift.js"></script>
+	<script src="js/directives/ui-toggleclass.js"></script>
+	<script src="js/directives/ui-validate.js"></script>
+	<script src="js/directives/ui-validate.js"></script>
+	<script src="js/three.min.js"></script>
+	<!-- Lazy loading -->
+	<script id="vs" type="x-shader/x-vertex">
+
+			varying vec2 vUv;
+
+			void main() {
+
+				vUv = uv;
+				gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+			}
+
+		</script>
+	<script id="fs" type="x-shader/x-fragment">
+
+			uniform sampler2D map;
+
+			uniform vec3 fogColor;
+			uniform float fogNear;
+			uniform float fogFar;
+
+			varying vec2 vUv;
+
+			void main() {
+
+				float depth = gl_FragCoord.z / gl_FragCoord.w;
+				float fogFactor = smoothstep( fogNear, fogFar, depth );
+
+				gl_FragColor = texture2D( map, vUv );
+				gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
+				gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor );
+
+			}
+
+		</script>
+
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							//      客服
+							$(".qq_cza")
+									.hover(
+											function() {
+												if (navigator.appName == "Microsoft Internet Explorer"
+														&& navigator.appVersion
+																.split(";")[1]
+																.replace(
+																		/[ ]/g,
+																		"") == "MSIE7.0") {
+													$(this)
+															.stop(true, false)
+															.animate(
+																	{
+																		"width" : "170px",
+																		"left" : "-85px"
+																	}, 300);
+												} else {
+													$(this)
+															.stop(true, false)
+															.animate(
+																	{
+																		"width" : "170px"
+																	}, 300);
+												}
+											},
+											function() {
+												if (navigator.appName == "Microsoft Internet Explorer"
+														&& navigator.appVersion
+																.split(";")[1]
+																.replace(
+																		/[ ]/g,
+																		"") == "MSIE7.0") {
+													$(this)
+															.stop(true, false)
+															.animate(
+																	{
+																		"width" : "35px",
+																		"left" : "0"
+																	}, 300);
+												} else {
+													$(this)
+															.stop(true, false)
+															.animate(
+																	{
+																		"width" : "35px"
+																	}, 300);
+												}
+											});
+							$(".qq_czb").hover(function() {
+								$(".erweima").show(50);
+							}, function() {
+								$(".erweima").hide(50);
+							});
+
+						});
+
+		var container;
+		var camera, scene, renderer;
+		var mesh, geometry, material;
+
+		var mouseX = 0, mouseY = -58;
+		var start_time = Date.now();
+
+		var windowHalfX = window.innerWidth / 2;
+		var windowHalfY = window.innerHeight / 2;
+
+		init();
+
+		function init() {
+
+			container = document.createElement('div');
+			document.body.appendChild(container);
+
+			// Bg gradient
+
+			var canvas = document.createElement('canvas');
+			canvas.width = 32;
+			canvas.height = window.innerHeight;
+
+			var context = canvas.getContext('2d');
+
+			var gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+			gradient.addColorStop(0, "#1e4877");
+			gradient.addColorStop(0.5, "#4584b4");
+
+			context.fillStyle = gradient;
+			context.fillRect(0, 0, canvas.width, canvas.height);
+
+			container.style.background = 'url(' + canvas.toDataURL('image/png')
+					+ ')';
+			container.style.backgroundSize = '32px 100%';
+
+			//
+
+			camera = new THREE.PerspectiveCamera(30, window.innerWidth
+					/ window.innerHeight, 1, 3000);
+			camera.position.z = 6000;
+
+			scene = new THREE.Scene();
+
+			geometry = new THREE.Geometry();
+
+			var texture = THREE.ImageUtils.loadTexture('img/cloud10.png', null,
+					animate);
+			texture.magFilter = THREE.LinearMipMapLinearFilter;
+			texture.minFilter = THREE.LinearMipMapLinearFilter;
+
+			var fog = new THREE.Fog(0x4584b4, -100, 3000);
+
+			material = new THREE.ShaderMaterial({
+
+				uniforms : {
+
+					"map" : {
+						type : "t",
+						value : texture
+					},
+					"fogColor" : {
+						type : "c",
+						value : fog.color
+					},
+					"fogNear" : {
+						type : "f",
+						value : fog.near
+					},
+					"fogFar" : {
+						type : "f",
+						value : fog.far
+					},
+
+				},
+				vertexShader : document.getElementById('vs').textContent,
+				fragmentShader : document.getElementById('fs').textContent,
+				depthWrite : false,
+				depthTest : false,
+				transparent : true
+
+			});
+
+			var plane = new THREE.Mesh(new THREE.PlaneGeometry(64, 64));
+
+			for (var i = 0; i < 8000; i++) {
+
+				plane.position.x = Math.random() * 1000 - 500;
+				plane.position.y = -Math.random() * Math.random() * 200 - 15;
+				plane.position.z = i;
+				plane.rotation.z = Math.random() * Math.PI;
+				plane.scale.x = plane.scale.y = Math.random() * Math.random()
+						* 1.5 + 0.5;
+
+				THREE.GeometryUtils.merge(geometry, plane);
+
+			}
+
+			mesh = new THREE.Mesh(geometry, material);
+			scene.add(mesh);
+
+			mesh = new THREE.Mesh(geometry, material);
+			mesh.position.z = -8000;
+			scene.add(mesh);
+
+			renderer = new THREE.WebGLRenderer({
+				antialias : false
+			});
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			container.appendChild(renderer.domElement);
+
+			document.addEventListener('mousemove', onDocumentMouseMove, false);
+			window.addEventListener('resize', onWindowResize, false);
+
+			if (window.innerWidth < 600) {
+				$(".wrapper-md").hide();
+			}
+		}
+
+		function onDocumentMouseMove(event) {
+
+			mouseX = (event.clientX - windowHalfX) * 0.25;
+			//mouseY = ( event.clientY - windowHalfY ) * 0.15;
+			//alert(mouseX);
+			//alert(mouseY);
+			//mouseX=103;
+			//mouseY=-58.4;
+
+		}
+
+		function onWindowResize(event) {
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize(window.innerWidth, window.innerHeight);
+
+		}
+
+		function animate() {
+
+			requestAnimationFrame(animate);
+
+			position = ((Date.now() - start_time) * 0.03) % 8000;
+
+			camera.position.x += (mouseX - camera.position.x) * 0.01;
+			camera.position.y += (-mouseY - camera.position.y) * 0.01;
+			camera.position.z = -position + 8000;
+
+			renderer.render(scene, camera);
+
+		}
+	</script>
+</body>
+</html>
