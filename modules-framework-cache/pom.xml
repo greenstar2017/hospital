@@ -9,7 +9,7 @@
 	<artifactId>modules-framework-cache</artifactId>
 	<name>缓存模块</name>
 	<properties>
-		<fastjson.version>1.2.4</fastjson.version>
+		<fastjson.version>1.2.83</fastjson.version>
 		<json-lib.version>2.4</json-lib.version>
 	</properties>
 	<dependencies>
